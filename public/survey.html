@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Friend Finder</h1>
+    <input id='nameInput'> Tell Us Your Name!</input>
+    <h3>1. On a scale of 1-5, </h3>
+    <select id = 'questionOne'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>2. How much do you like dogs?</h3>
+    <select id = 'questionTwo'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>3. How much do you like dogs?</h3>
+    <select id = 'questionThree'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>4. How much do you like dogs?</h3>
+    <select id = 'questionFour'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>5. How much do you like dogs?</h3>
+    <select id = 'questionFive'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>6. How much do you like dogs?</h3>
+    <select id = 'questionSix'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>7. How much do you like dogs?</h3>
+    <select id = 'questionSeven'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>8. How much do you like dogs?</h3>
+    <select id = 'questionEight'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>9. How much do you like dogs?</h3>
+    <select id = 'questionNine'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <h3>10. How much do you like dogs?</h3>
+    <select id = 'questionTen'>
+        <option value='1'>1</option>
+        <option value='2'>2</option>
+        <option value='3'>3</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+    <button id='submitButton'>Submit</button>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
+crossorigin="anonymous"></script>
+<script>
+$('#submitButton').on('click', function(){
+console.log('submitted')
+var input = $('#nameInput').val()
+var q1 =$('#questionOne').val()
+var q2 =$('#questionTwo').val()
+var q3 =$('#questionThree').val()
+var q4 =$('#questionFour').val()
+var q5 =$('#questionFive').val()
+var q6 =$('#questionSix').val()
+var q7 =$('#questionSeven').val()
+var q8 =$('#questionEight').val()
+var q9 =$('#questionNine').val()
+var q10 =$('#questionTen').val()
+var user = {
+    name:input,
+    q1:q1
+    q2:q2
+    q3:q3
+    q4:q4
+    q5:q5
+    q6:q6
+    q7:q7
+    q8:q8
+    q9:q9
+    q10:q10
+}
+
+$.post('/survey', user, function(){
+    console.log('sent!')
+})
+}
+)
+
+</script>
+</body>
+</html>
+
