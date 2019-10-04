@@ -4,92 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Friend Finder Survey</title>
 </head>
 <body>
     <h1>Friend Finder</h1>
     <input id='nameInput'> Tell Us Your Name!</input>
-    <h3>1. On a scale of 1-5, </h3>
+    <h3>1. Your idea of an ideal Sunday morning involves being outdoors. </h3>
     <select id = 'questionOne'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>2. How much do you like dogs?</h3>
+    <h3>2. To have a good time, you need to be surrounded by other outgoing people.</h3>
     <select id = 'questionTwo'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>3. How much do you like dogs?</h3>
+    <h3>3. Seeing a dog brings a smile to your face.</h3>
     <select id = 'questionThree'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>4. How much do you like dogs?</h3>
+    <h3>4. You find being around a lot of other people to be pretty exhausting.</h3>
     <select id = 'questionFour'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>5. How much do you like dogs?</h3>
+    <h3>5. Going to a workout class with a new friend sounds like a fun way to hang out.</h3>
     <select id = 'questionFive'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>6. How much do you like dogs?</h3>
+    <h3>6. Talking about politics makes you excited.</h3>
     <select id = 'questionSix'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>7. How much do you like dogs?</h3>
+    <h3>7. When you have a new friend, you like to hang out with as much as you can.</h3>
     <select id = 'questionSeven'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>8. How much do you like dogs?</h3>
+    <h3>8. You think that everyone’s views should be respected regardless of whether they are supported by facts or not. </h3>
     <select id = 'questionEight'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>9. How much do you like dogs?</h3>
+    <h3>9. People can rarely upset you.</h3>
     <select id = 'questionNine'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
-    <h3>10. How much do you like dogs?</h3>
+    <h3>10. You find it easy to stay relaxed and focused even when there is some pressure.</h3>
     <select id = 'questionTen'>
-        <option value='1'>1</option>
+        <option value='1'>1 (Strongly Agree)</option>
         <option value='2'>2</option>
         <option value='3'>3</option>
         <option value='4'>4</option>
-        <option value='5'>5</option>
+        <option value='5'>5 (Strongly Disagree)</option>
     </select>
+    <br></br>
     <button id='submitButton'>Submit</button>
+    <div id='results'></div>
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
@@ -110,20 +112,13 @@ var q9 =$('#questionNine').val()
 var q10 =$('#questionTen').val()
 var user = {
     name:input,
-    q1:q1
-    q2:q2
-    q3:q3
-    q4:q4
-    q5:q5
-    q6:q6
-    q7:q7
-    q8:q8
-    q9:q9
-    q10:q10
+    scores:[q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
 }
 
-$.post('/survey', user, function(){
+$.post('/survey', user, function(data){
     console.log('sent!')
+    console.log(data)
+    $('#results').append('<h2>'+ data.name + '</h2>')
 })
 }
 )

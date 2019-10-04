@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var friends = require('./friends.js')
 
 //making static assets
 app.use(express.static("public"));
@@ -27,6 +28,26 @@ app.get('/survey', function(req, res){
 app.post('/survey', function(req, res){
     console.log('someone submitted their survey')
     console.log(req)
+    var userScores = req.body.scores
+    var bestMatch = {
+        name: '',
+        totalDifference: 100
+    }
+    
+    for (var i = 0; i<friends.length; i++) {
+        var difference = 0;
+        console.log(friends[i])
+        for (var j = 0; j<friends[i].scores.length; j++){
+            var a = friends[i].scores[j];
+            var b = userScores[j];
+            difference += Math.abs(a-b)
+        }
+    if (difference < bestMatch.totalDifference){
+        bestMatch.name = friends[i].name
+        bestMatch.totalDifference = difference
+    }    
+    }
+res.json(bestMatch)
 })
 // by default the forms use req.query so let's not fight it
 //localhost:3000/insert?pres_name=justin
